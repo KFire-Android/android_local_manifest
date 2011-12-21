@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <manifest>
+
+    <remote name = "githubp" fetch="git://github.com/" />
+     
+    <remote name = "omapzoom" fetch="git://git.omapzoom.org/" />
+
+    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="githubp" revision="master" />
+    <project path="device/ti/proprietary-open" name="device/ti/proprietary-open" remote="omapzoom" revision="ics-mr0" />
+    <project path="kernel" name="KFire-Android/Android-kernel-for-kindle-fire" remote="githubp" revision="master" />
+    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" revision="ics" />
+
+  </manifest>
