@@ -5,7 +5,10 @@
      
     <remote name = "omapzoom" fetch="git://git.omapzoom.org/" />
 
+    <project path="external/hostapd" name="CyanogenMod/android_external_hostapd" remote="githubp" revision="refs/heads/gingerbread" />
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="githubp" revision="ics" />
+    <project path="hardware/ti/wpan" name="Hashcode/android_hardware_ti_wpan" remote="githubp" revision="ics" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" revision="ics" />
+    <project path="vendor/google" name="ICSTH3ORY/proprietary_vendor_google" remote="githubp" revision="ics" />
 
   </manifest>
