@@ -12,6 +12,7 @@
     <remove-project name="CyanogenMod/android_device_samsung_toro" />
     <remove-project name="CyanogenMod/android_device_samsung_tuna" />
     <remove-project name="CyanogenMod/android_hardware_ti_omap3" />
+    <!-- <remove-project name="platform/hardware/ti/omap4xxx" /> -->
 
     <!-- local projects -->
     <project path="bootable/recovery" name="KFire-Android/android_bootable_recovery" remote="githubp" revision="refs/heads/ics" />
@@ -23,7 +24,8 @@
     <project path="device/ti/common-open" name="device/ti/common-open" remote="omapzoom" revision="ics-mr1" />
     <project path="device/ti/proprietary-open" name="device/ti/proprietary-open" remote="omapzoom" revision="ics-mr1" />
     <project path="device/ti/support-tools" name="repo/support-tools" remote="omapzoom" revision="master" />
-    <project path="hardware/ti/domx" name="platform/hardware/ti/domx" remote="omapzoom" revision="master" />
+    <!-- <project path="hardware/ti/domx" name="platform/hardware/ti/domx" remote="omapzoom" revision="master" /> -->
+    <!-- <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" remote="omapzoom" revision="p-ics-mr1" /> -->
     <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-ics-mr1" />
     <project path="hardware/ti/wpan" name="platform/hardware/ti/wpan" remote="omapzoom" revision="ics-mr1" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" revision="ics" />
