@@ -6,29 +6,22 @@
     <remote name = "omapzoom" fetch="git://git.omapzoom.org/" />
 
     <!-- removals -->
-    <remove-project name="CyanogenMod/android_bootable_recovery" />
-    <remove-project name="CyanogenMod/android_device_samsung_maguro" />
-    <remove-project name="CyanogenMod/android_device_samsung_p4-common" />
-    <remove-project name="CyanogenMod/android_device_samsung_toro" />
-    <remove-project name="CyanogenMod/android_device_samsung_tuna" />
+    <remove-project name="CyanogenMod/android_frameworks_base" />
     <remove-project name="CyanogenMod/android_hardware_ti_omap3" />
-    <!-- <remove-project name="platform/hardware/ti/omap4xxx" /> -->
+    <remove-project name="platform/hardware/ti/omap4xxx" />
+
+    <!-- CM Optionals -->
+    <project path="packages/apps/CMSettings" name="Pedlar/android_packages_apps_CMSettings" />
 
     <!-- local projects -->
-    <project path="bootable/recovery" name="KFire-Android/android_bootable_recovery" remote="githubp" revision="refs/heads/ics" />
-    <project path="external/bltsville" name="platform/external/bltsville" remote="omapzoom" revision="master"/>
-    <project path="external/crda" name="platform/external/crda" remote="omapzoom" revision="p-ics-mr1" />
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="githubp" revision="ics" />
-    <project path="device/ti/blaze" name="device/ti/blaze" remote="omapzoom" revision="ics-mr1" />
-    <project path="device/ti/blaze_tablet" name="device/ti/blaze_tablet" remote="omapzoom" revision="ics-mr1" />
-    <project path="device/ti/common-open" name="device/ti/common-open" remote="omapzoom" revision="ics-mr1" />
-    <project path="device/ti/proprietary-open" name="device/ti/proprietary-open" remote="omapzoom" revision="ics-mr1" />
-    <project path="device/ti/support-tools" name="repo/support-tools" remote="omapzoom" revision="master" />
-    <!-- <project path="hardware/ti/domx" name="platform/hardware/ti/domx" remote="omapzoom" revision="master" /> -->
-    <!-- <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" remote="omapzoom" revision="p-ics-mr1" /> -->
-    <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-ics-mr1" />
-    <project path="hardware/ti/wpan" name="platform/hardware/ti/wpan" remote="omapzoom" revision="ics-mr1" />
-    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" revision="ics" />
-    <project path="vendor/google" name="ICSTH3ORY/proprietary_vendor_google" remote="githubp" revision="ics" />
+    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="githubp" />
+    <project path="external/hostapd" name="CyanogenMod/android_external_hostapd" revision="refs/heads/gingerbread" />
+    <project path="frameworks/base" name="KFire-Android/android_frameworks_base" remote="githubp" />
+    <project path="hardware/ti/omap4xxx" name="KFire-Android/android_hardware_ti_omap4xxx" remote="githubp" revision="ics-hybrid" />
+    <project path="hardware/ti/syslink" name="KFire-Android/android_hardware_ti_syslink" remote="githubp" />
+    <project path="hardware/ti/tiler" name="platform/hardware/ti/tiler" remote="omapzoom" revision="refs/heads/memmgr_1.0" />
+    <project path="hardware/ti/wpan" name="Hashcode/android_hardware_ti_wpan" remote="githubp" />
+    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" />
+    <project path="vendor/google" name="Hashcode/proprietary_vendor_google" remote="githubp" />
 
   </manifest>
