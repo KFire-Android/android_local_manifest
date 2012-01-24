@@ -22,6 +22,5 @@
     <project path="hardware/ti/tiler" name="platform/hardware/ti/tiler" remote="omapzoom" revision="refs/heads/memmgr_1.0" />
     <project path="hardware/ti/wpan" name="Hashcode/android_hardware_ti_wpan" remote="githubp" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" />
-    <project path="vendor/google" name="Hashcode/proprietary_vendor_google" remote="githubp" />
 
   </manifest>
