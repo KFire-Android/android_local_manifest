@@ -9,6 +9,7 @@
     <remove-project name="CyanogenMod/android_frameworks_base" />
     <remove-project name="CyanogenMod/android_hardware_ti_omap3" />
     <remove-project name="platform/hardware/ti/omap4xxx" />
+    <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" />
 
     <!-- CM Optionals -->
     <project path="packages/apps/CMSettings" name="Pedlar/android_packages_apps_CMSettings" />
@@ -22,5 +23,6 @@
     <project path="hardware/ti/tiler" name="platform/hardware/ti/tiler" remote="omapzoom" revision="refs/heads/memmgr_1.0" />
     <project path="hardware/ti/wpan" name="Hashcode/android_hardware_ti_wpan" remote="githubp" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" />
+    <project path="external/wpa_supplicant_6" name="KFire-Android/wpa_supplicant_6" remote="githubp" />
 
   </manifest>
