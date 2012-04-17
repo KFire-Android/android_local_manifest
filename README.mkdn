@@ -18,7 +18,7 @@ To initialize your local repository using the CM9 manifest, use commands like th
     
     curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/ics-cm9/local_manifest.xml
 
-    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/ics/local_manifest.xml
+    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/ics-cm9/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
