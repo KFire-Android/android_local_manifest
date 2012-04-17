@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-    <remote name = "githubp" fetch="git://github.com/" />
-     
-    <remote name = "omapzoom" fetch="git://git.omapzoom.org/" />
-
-    <!-- removals -->
-    <remove-project name="CyanogenMod/android_frameworks_base" />
-    <remove-project name="CyanogenMod/android_hardware_ti_omap3" />
-    <remove-project name="platform/hardware/ti/omap4xxx" />
-    <remove-project name="CyanogenMod/android_external_wpa_supplicant_6" />
-    <remove-project name="CyanogenMod/android_packages_apps_QuickSearchBox" />
-    <remove-project name="platform/packages/inputmethods/OpenWnn" />
-    <remove-project name="platform/packages/inputmethods/PinyinIME" />
-    <remove-project name="CyanogenMod/android_packages_apps_Calendar" />
-
-    <!-- CM Optionals -->
-    <project path="packages/apps/CMSettings" name="Pedlar/android_packages_apps_CMSettings" />
-
     <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="githubp" />
-    <project path="external/hostapd" name="CyanogenMod/android_external_hostapd" revision="refs/heads/gingerbread" />
-    <project path="frameworks/base" name="KFire-Android/android_frameworks_base" remote="githubp" />
-    <project path="hardware/ti/omap4xxx" name="KFire-Android/android_hardware_ti_omap4xxx" remote="githubp" revision="ics-hybrid" />
-    <project path="hardware/ti/syslink" name="KFire-Android/android_hardware_ti_syslink" remote="githubp" />
-    <project path="hardware/ti/tiler" name="platform/hardware/ti/tiler" remote="omapzoom" revision="refs/heads/memmgr_1.0" />
-    <project path="hardware/ti/wpan" name="Hashcode/android_hardware_ti_wpan" remote="githubp" />
-    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="githubp" />
-    <project path="external/wpa_supplicant_6" name="KFire-Android/wpa_supplicant_6" remote="githubp" />
+    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
 
   </manifest>
