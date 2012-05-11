@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-    <!-- removals -->
-    <remove-project name="CyanogenMod/android_packages_apps_Music" />
-
-    <!-- replacements -->
-    <project path="packages/apps/CyanogenMod-Music" name="adneal/CyanogenMod-Music.git" remote="github" revision="master" />
-
     <!-- local projects -->
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
     <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap.git" remote="github" revision="4AI.5" />
