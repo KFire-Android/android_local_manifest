@@ -3,8 +3,7 @@ Local manifest addon for ICS to build for the Kindle Fire
 Getting Started
 ---------------
 
-To get started with Android, you'll need to get
-familiar with [Git and Repo](http://source.android.com/download/using-repo).
+To get started with please see our [wiki](https://github.com/KFire-Android/android_local_manifest/wiki).
 
 Make a build directory:
 
