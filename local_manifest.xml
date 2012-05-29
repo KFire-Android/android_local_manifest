@@ -2,7 +2,11 @@
   <manifest>
 
     <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
-    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap.git" remote="github" revision="4AI.5" />
+    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="gingerbread" />
+    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="gingerbread" />
+    
+    <!-- include my recovery (only works with gingerbread and stock) just to have something -->
+    <remove-project name="CyanogenMod/android_bootable_recovery" />
+    <project path="bootable/recovery" name="IngCr3at1on/android_bootable_recovery" remote="github" revision="gingerbread" />
 
   </manifest>
