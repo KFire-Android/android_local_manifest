@@ -1,4 +1,4 @@
-Local manifest addon for ICS to build for the Kindle Fire
+Local manifest addon for CM7 to build for the Kindle Fire
 
 Getting Started
 ---------------
@@ -13,11 +13,11 @@ Make a build directory:
 
 To initialize your local repository using the CM9 manifest, use commands like these:
 
-    repo init -u git://github.com/CyanogenMod/android.git -b ics
+    repo init -u git://github.com/CyanogenMod/android.git -b gingerbread
     
-    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/ics/local_manifest.xml
+    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/gingerbread/local_manifest.xml
 
-    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/ics/local_manifest.xml
+    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/gingerbread/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
