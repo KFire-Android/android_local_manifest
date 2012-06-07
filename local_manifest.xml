@@ -3,6 +3,7 @@
 
     <!-- local projects -->
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
-    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap.git" remote="github" revision="4AI.5" />
+    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI.5" />
+    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="ics" />
 
   </manifest>
