@@ -16,7 +16,6 @@
 
     <!-- cyanogenmod projects -->
     <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="ics" />
-    <project path="packages/apps/Superuser" name="CyanogenMod/android_packages_apps_Superuser" remote="github" revision="ics" />
 
     <!-- local projects -->
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics-aosp" />
