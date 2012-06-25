@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
+    <remote  name="omapzoom"
+           fetch="git://git.omapzoom.org/" />
+
+    <remote name="github"
+           fetch="git://github.com/" />
+
+    <!-- removals -->
+    <remove-project name="platform/external/wpa_supplicant_8" />
+
+    <!-- omapzoom projects -->
+    <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" remote="omapzoom" revision="d933a3abe927e2285cad8c00e3d6adfbb1998f8f" />
+    <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-ics-mr1-release" />
+
+    <!-- cyanogenmod projects -->
+    <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="ics" />
+    <project path="packages/apps/Superuser" name="CyanogenMod/android_packages_apps_Superuser" remote="github" revision="ics" />
+
     <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
+    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics-aosp" />
     <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI.5" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="ics" />
 
