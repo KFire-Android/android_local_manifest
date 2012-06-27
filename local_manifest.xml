@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
+    <!-- CM removals -->
+    <remove-project name="CyanogenMod/android_frameworks_base" />
 
     <!-- local projects -->
+    <project path="frameworks/base" name="KFire-Android/android_frameworks_base" remote="github" revision="ics" />
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics" />
     <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI.5" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="ics" />
