@@ -11,7 +11,7 @@ Make a build directory:
 	cd Android (or the name  you chose)
 	
 
-To initialize your local repository using the CM9 manifest, use commands like these:
+To initialize your local repository using the AOSP manifest, use commands like these:
 
     repo init -u https://android.googlesource.com/platform/manifest -b android-4.1.1_r1
     
