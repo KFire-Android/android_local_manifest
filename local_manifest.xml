@@ -2,6 +2,18 @@
   <manifest>
 
     <remote name="github" fetch="git://github.com/" />
+    <remote name="omapzoom" fetch="git://git.omapzoom.org/" />
+
+    <!-- AOSP removals -->
+    <remove-project name="platform/hardware/ti/wlan" />
+    <remove-project name="platform/system/vold" />
+
+    <!-- OMAPzoom projects -->
+    <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-jb-release" />
+
+    <!-- CM projects -->
+    <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="jellybean" />
+    <project path="system/vold" name="CyanogenMod/android_system_vold" remote="github" revision="jellybean" />
 
     <!-- local projects -->
     <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="jb" />

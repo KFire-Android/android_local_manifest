@@ -1,0 +1,14 @@
+diff --git a/camera/Android.mk b/camera/Android.mk
+index 1d7e048..0d8babb 100644
+--- a/camera/Android.mk
++++ b/camera/Android.mk
+@@ -2,7 +2,7 @@ ifeq ($(TARGET_BOARD_PLATFORM),omap4)
+ 
+ LOCAL_PATH:= $(call my-dir)
+ 
+-OMAP4_CAMERA_HAL_USES:= OMX
++# OMAP4_CAMERA_HAL_USES:= OMX
+ # OMAP4_CAMERA_HAL_USES:= USB
+ 
+ OMAP4_CAMERA_HAL_SRC := \
+
