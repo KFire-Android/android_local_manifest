@@ -24,3 +24,11 @@ Then to sync up:
 
     repo sync
 
+And finally to build the AOSP ROM:
+
+    . build/envsetup.sh
+    lunch full_otter-userdebug
+    make otapackage (can add -j# for cores to use: make -j32 otapackage)
+
+Look for out/target/product/otter/full_otter-ota-eng.{machinename}.zip
+
