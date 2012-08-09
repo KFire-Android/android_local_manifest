@@ -28,13 +28,10 @@ Apply the following patches (these are subject to change)
 
 	mkdir patches
 	curl -L -o patches/patch_build_fix-errors-and-assert.patch -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/patch_build_fix-errors-and-assert.patch
-	curl -L -o patches/patch_external-busybox_fix-NR_stime-ref.patch -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/patch_external-busybox_fix-NR_stime-ref.patch
 	curl -L -o patches/patch_frameworks-base_fix-rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_frameworks-base_fix-rotation.patch
 	curl -L -o patches/patch_hardware-ti-omap4xxx_fix-camera.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_hardware-ti-omap4xxx_fix-camera.patch
 	cd build
 	git apply ../patches/patch_build_fix-errors-and-assert.patch
-	cd ../external/busybox
-	git apply ../../patches/patch_external-busybox_fix-NR_stime-ref.patch
 	cd ../../frameworks/base
 	git apply ../../patches/patch_frameworks-base_fix-rotation.patch
 	cd ../../hardware/ti/omap4xxx

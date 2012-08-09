@@ -1,25 +1,3 @@
-diff --git a/core/main.mk b/core/main.mk
-index 407a529..9faeadb 100644
---- a/core/main.mk
-+++ b/core/main.mk
-@@ -138,7 +138,7 @@ $(info $(space))
- $(info Please follow the machine setup instructions at)
- $(info $(space)$(space)$(space)$(space)https://source.android.com/source/download.html)
- $(info ************************************************************)
--$(error stop)
-+#$(error stop)
- endif
- 
- # Check for the correct version of javac
-@@ -154,7 +154,7 @@ $(info $(space))
- $(info Please follow the machine setup instructions at)
- $(info $(space)$(space)$(space)$(space)https://source.android.com/source/download.html)
- $(info ************************************************************)
--$(error stop)
-+#$(error stop)
- endif
- 
- $(shell echo 'VERSIONS_CHECKED := $(VERSION_CHECK_SEQUENCE_NUMBER)' \
 diff --git a/tools/releasetools/edify_generator.py b/tools/releasetools/edify_generator.py
 index 5672b5a..56618dc 100644
 --- a/tools/releasetools/edify_generator.py
