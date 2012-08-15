@@ -15,17 +15,17 @@
   <project path="device/ti/common-open" name="device/ti/common-open" remote="omapzoom" revision="jb-release" />
   <project path="device/ti/proprietary-open" name="device/ti/proprietary-open" remote="omapzoom" revision="jb-release" />
   <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" remote="omapzoom" revision="p-jb-release" />
-  <project path="hardware/ti/domx" name="platform/hardware/ti/domx" remote="omapzoom" revision="jb-release" />
-  <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" remote="omapzoom" revision="p-jb-release" />
   <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-jb-release" />
 
   <!-- modified CM projects -->
   <project path="bionic" name="KFire-Android/android_bionic" revision="jellybean" />
   <project path="system/core" name="KFire-Android/android_system_core" revision="jellybean" />
+  <project path="hardware/ti/omap4xxx" name="KFire-Android/android_hardware_ti_omap4xxx" revision="jellybean" />
+  <project path="hardware/ti/domx" name="KFire-Android/android_hardware_ti_domx" revision="jellybean" />
 
   <!-- local projects -->
   <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" revision="jb" />
-  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" revision="4AI.5-dev" />
+  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" revision="4AI1.7" />
   <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" revision="jb" />
 
   </manifest>
