@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
+  <remote  name="omapzoom"
+           fetch="git://git.omapzoom.org/" />
+
+  <!-- CM removals -->
+  <remove-project name="CyanogenMod/android_hardware_libhardware" />
+  <remove-project name="CyanogenMod/android_hardware_libhardware_legacy" />
+  <remove-project name="CyanogenMod/android_hardware_ti_omap4xxx" />
+  <remove-project name="CyanogenMod/android_hardware_ti_wlan" />
+  <remove-project name="CyanogenMod/android_system_core" />
+
+  <!-- omapzoom replacements -->
+  <project path="device/ti/common-open" name="device/ti/common-open" remote="omapzoom" revision="jb-release" />
+  <project path="device/ti/proprietary-open" name="device/ti/proprietary-open" remote="omapzoom" revision="jb-release" />
+  <project path="hardware/ti/domx" name="platform/hardware/ti/domx" remote="omapzoom" revision="jb-release" />
+  <project path="hardware/ti/omap4xxx" name="platform/hardware/ti/omap4xxx" remote="omapzoom" revision="p-jb-release" />
+  <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-jb-release" />
+  <project path="external/wpa_supplicant_8_ti" name="platform/external/wpa_supplicant_8_ti" remote="omapzoom" revision="jb-release">
+     <annotation name="vendor" value="ti" />
+  </project>
+
+  <!-- modified CM projects -->
+  <project path="hardware/libhardware" name="KFire-Android/android_hardware_libhardware" revision="jellybean" />
+  <project path="hardware/libhardware_legacy" name="KFire-Android/android_hardware_libhardware_legacy" revision="jellybean" />
+  <project path="system/core" name="KFire-Android/android_system_core" revision="jellybean" />
+
   <!-- local projects -->
   <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" revision="jb" />
   <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" revision="4AI1.7" />
   <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" revision="jb" />
-
+    
   </manifest>
