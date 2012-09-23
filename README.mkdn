@@ -1,4 +1,4 @@
-Local manifest addon for building CM10 Jelly Bean for the Kindle Fire
+Local manifest addon for building AOKP Jelly Bean for the Kindle Fire
 
 Getting Started
 ---------------
@@ -11,23 +11,22 @@ Make a build directory:
 	cd Android (or the name  you chose)
 	
 
-To initialize your local repository using the AOSP manifest, use commands like these:
+To initialize your local repository using the AOKP manifest, use commands like these:
 
-    repo init -u git://github.com/CyanogenMod/android.git -b jellybean
+    repo init -u git://github.com/AOKP/platform_manifest -b jellybean
     
-    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-cm10/local_manifest.xml
+    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-oakp/local_manifest.xml
 
-    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-cm10/local_manifest.xml
+    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-aokp/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
 
     repo sync --current-branch
 
-And finally to build the AOSP ROM:
+And finally to build the ROM:
 
     . build/envsetup.sh
     brunch otter
 
-Look for out/target/product/otter/cm-10-{DATE}-UNOFFICIAL-otter.zip
 
