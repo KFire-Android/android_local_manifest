@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
+  <remote  name="github"
+           fetch="git://github.com/" />
+
   <remote  name="omapzoom"
            fetch="git://git.omapzoom.org/" />
 
@@ -21,13 +24,13 @@
   </project>
 
   <!-- modified CM projects -->
-  <project path="hardware/libhardware" name="KFire-Android/android_hardware_libhardware" revision="jellybean" />
-  <project path="hardware/libhardware_legacy" name="KFire-Android/android_hardware_libhardware_legacy" revision="jellybean" />
-  <project path="system/core" name="KFire-Android/android_system_core" revision="jellybean" />
+  <project path="hardware/libhardware" name="KFire-Android/android_hardware_libhardware" remote="github" revision="jellybean" />
+  <project path="hardware/libhardware_legacy" name="KFire-Android/android_hardware_libhardware_legacy" remote="github" revision="jellybean" />
+  <project path="system/core" name="KFire-Android/android_system_core" remote="github" revision="jellybean" />
 
   <!-- local projects -->
-  <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" revision="jb" />
-  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" revision="4AI1.7" />
-  <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" revision="jb" />
+  <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="jb" />
+  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI1.7" />
+  <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="jb" />
     
   </manifest>
