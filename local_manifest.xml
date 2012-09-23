@@ -26,7 +26,7 @@
   <!-- modified CM projects -->
   <project path="hardware/libhardware" name="KFire-Android/android_hardware_libhardware" remote="github" revision="jellybean" />
   <project path="hardware/libhardware_legacy" name="KFire-Android/android_hardware_libhardware_legacy" remote="github" revision="jellybean" />
-  <project path="system/core" name="KFire-Android/android_system_core" remote="github" revision="jellybean" />
+  <project path="system/core" name="KFire-Android/android_system_core" remote="github" revision="jellybean-aokp" />
 
   <!-- local projects -->
   <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="jb" />
