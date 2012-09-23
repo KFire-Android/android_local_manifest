@@ -15,7 +15,7 @@ To initialize your local repository using the AOKP manifest, use commands like t
 
     repo init -u git://github.com/AOKP/platform_manifest -b jellybean
     
-    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-oakp/local_manifest.xml
+    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aokp/local_manifest.xml
 
     	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-aokp/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
