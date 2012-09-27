@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <manifest>
+<manifest>
+  <remote name="github" fetch="git://github.com/" />
 
-    <remote name="github" fetch="git://github.com/" />
-    <remote name="omapzoom" fetch="git://git.omapzoom.org/" />
+  <!-- omapzoom removal -->
+  <remove-project name="platform/build" />
+  <remove-project name="platform/system/vold" />
 
-    <!-- AOSP removals -->
-    <remove-project name="platform/hardware/ti/wlan" />
-    <remove-project name="platform/system/vold" />
+  <!-- replacements -->
+  <project path="build" name="KFire-Android/android_build" remote="github" revision="jb-aosp" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+  <project path="system/vold" name="CyanogenMod/android_system_vold" remote="github" revision="jellybean" />
 
-    <!-- OMAPzoom projects -->
-    <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-jb-release" />
+  <!-- support projects -->
+  <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="jellybean" />
+  <project path="packages/apps/Superuser" name="CyanogenMod/android_packages_apps_Superuser" remote="github" revision="jellybean" />
 
-    <!-- CM projects -->
-    <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="jellybean" />
-    <project path="system/vold" name="CyanogenMod/android_system_vold" remote="github" revision="jellybean" />
+  <!-- local projects -->
+  <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="jb-dev" />
+  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="p-android-omap-3.0" />
+  <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="jb-dev" />
 
-    <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="jb" />
-    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI.5" />
-    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="jb" />
+</manifest>
 
-  </manifest>

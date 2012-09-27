@@ -1,4 +1,4 @@
-Local manifest addon for building AOSP Jelly Bean for the Kindle Fire
+Local manifest addon for building Omapzoom "jb-release" Jelly Bean for the Kindle Fire
 
 Getting Started
 ---------------
@@ -13,12 +13,12 @@ Make a build directory:
 
 To initialize your local repository using the AOSP manifest, use commands like these:
 
-    repo init -u https://android.googlesource.com/platform/manifest -b android-4.1.1_r1
+    repo init -u git://git.omapzoom.org/platform/omapmanifest.git -b 27.x -m RLS4AJ.2.0_JellyBean.xml
     
-    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/local_manifest.xml
+    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-omapzoom/local_manifest.xml
 
-    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-aosp/local_manifest.xml
-		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
+    or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-omapzoom/local_manifest.xml
+    and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
 
@@ -26,23 +26,17 @@ Then to sync up:
 
 Apply the following patches (these are subject to change)
 
-	mkdir patches
-	curl -L -o patches/patch_build_fix-errors-and-assert.patch -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/patch_build_fix-errors-and-assert.patch
-	curl -L -o patches/patch_frameworks-base_fix-rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_frameworks-base_fix-rotation.patch
-	curl -L -o patches/patch_hardware-ti-omap4xxx_fix-camera.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_hardware-ti-omap4xxx_fix-camera.patch
-	cd build
-	git apply ../patches/patch_build_fix-errors-and-assert.patch
-	cd ../../frameworks/base
-	git apply ../../patches/patch_frameworks-base_fix-rotation.patch
-	cd ../../hardware/ti/omap4xxx
-	git apply ../../../patches/patch_hardware-ti-omap4xxx_fix-camera.patch
-	cd ../../..
+    mkdir patches
+    curl -L -o patches/patch_frameworks-base_fix-rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_frameworks-base_fix-rotation.patch
+    cd frameworks/base
+    git apply ../../patches/patch_frameworks-base_fix-rotation.patch
+    cd ../..
 
 And finally to build the AOSP ROM:
 
     . build/envsetup.sh
     lunch full_otter-userdebug
-    make otapackage (can add -j# for cores to use: make -j32 otapackage)
+    make bacon (can add -j# for cores to use: make -j32 otapackage)
 
-Look for out/target/product/otter/full_otter-ota-eng.{machinename}.zip
+Look for out/target/product/otter/full_otter-jb-######.zip (###### = date)
 
