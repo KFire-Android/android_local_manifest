@@ -1,30 +1,48 @@
-From 4581d7f61dc5c1a70c2fcd9edd2ce07efeb64fd0 Mon Sep 17 00:00:00 2001
-From: 0xD34D <clark@scheffsblend.com>
-Date: Wed, 11 Jul 2012 17:45:25 -0700
-Subject: [PATCH] testing fix for screen rotation animation
+From 09318f790a69c7fca1f304445f260a8a64f5d4f6 Mon Sep 17 00:00:00 2001
+From: River Zhou <riverzhou2000@gmail.com>
+Date: Mon, 8 Oct 2012 11:25:15 +0800
+Subject: [PATCH] frameworks: base: services: fix screenshot rotation
 
-Change-Id: I5ee85c9aa357cb47bab87d94ca1a85c56c7deabf
 ---
- .../android/server/wm/ScreenRotationAnimation.java |   28 +++++++++++++++-----
- 1 file changed, 21 insertions(+), 7 deletions(-)
+ .../systemui/screenshot/GlobalScreenshot.java      |    5 +++-
+ .../android/server/wm/ScreenRotationAnimation.java |   29 ++++++++++++++------
+ .../android/server/wm/WindowManagerService.java    |    3 ++
+ 3 files changed, 27 insertions(+), 10 deletions(-)
 
+diff --git a/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java b/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java
+index 9448bbf..4370811 100644
+--- a/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java
++++ b/packages/SystemUI/src/com/android/systemui/screenshot/GlobalScreenshot.java
+@@ -382,7 +382,10 @@ class GlobalScreenshot {
+         // only in the natural orientation of the device :!)
+         mDisplay.getRealMetrics(mDisplayMetrics);
+         float[] dims = {mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels};
+-        float degrees = getDegreesForRotation(mDisplay.getRotation());
++        int rot = mDisplay.getRotation();
++        // Allow for abnormal hardware orientation
++        rot = (rot + (android.os.SystemProperties.getInt("ro.sf.hwrotation",0) / 90 )) % 4;
++        float degrees = getDegreesForRotation(rot);
+         boolean requiresRotation = (degrees > 0);
+         if (requiresRotation) {
+             // Get the dimensions of the device in its native orientation
 diff --git a/services/java/com/android/server/wm/ScreenRotationAnimation.java b/services/java/com/android/server/wm/ScreenRotationAnimation.java
-index 938db9e..bda0a01 100644
+index 938db9e..7e3261b 100644
 --- a/services/java/com/android/server/wm/ScreenRotationAnimation.java
 +++ b/services/java/com/android/server/wm/ScreenRotationAnimation.java
-@@ -47,6 +47,8 @@
+@@ -47,6 +47,7 @@ class ScreenRotationAnimation {
      BlackFrame mEnteringBlackFrame;
      int mWidth, mHeight;
  
 +    int mSnapshotRotation;
-+    int mSnapshotDeltaRotation;
      int mOriginalRotation;
      int mOriginalWidth, mOriginalHeight;
      int mCurRotation;
-@@ -190,15 +192,27 @@ public ScreenRotationAnimation(Context context, SurfaceSession session,
+@@ -188,17 +189,27 @@ class ScreenRotationAnimation {
+     public ScreenRotationAnimation(Context context, SurfaceSession session,
+             boolean inTransaction, int originalWidth, int originalHeight, int originalRotation) {
          mContext = context;
- 
-         // Screenshot does NOT include rotation!
+-
+-        // Screenshot does NOT include rotation!
 -        if (originalRotation == Surface.ROTATION_90
 +        // Allow for abnormal hardware orientation
 +        mSnapshotRotation = (4 - android.os.SystemProperties.getInt("ro.sf.hwrotation",0) / 90) % 4;
@@ -55,7 +73,7 @@ index 938db9e..bda0a01 100644
          mOriginalRotation = originalRotation;
          mOriginalWidth = originalWidth;
          mOriginalHeight = originalHeight;
-@@ -303,7 +317,7 @@ private void setRotation(int rotation) {
+@@ -303,7 +314,7 @@ class ScreenRotationAnimation {
          // Compute the transformation matrix that must be applied
          // to the snapshot to make it stay in the same original position
          // with the current screen rotation.
@@ -64,7 +82,21 @@ index 938db9e..bda0a01 100644
          createRotationMatrix(delta, mWidth, mHeight, mSnapshotInitialMatrix);
  
          if (DEBUG_STATE) Slog.v(TAG, "**** ROTATION: " + delta);
+diff --git a/services/java/com/android/server/wm/WindowManagerService.java b/services/java/com/android/server/wm/WindowManagerService.java
+index 7011343..4b5890c 100755
+--- a/services/java/com/android/server/wm/WindowManagerService.java
++++ b/services/java/com/android/server/wm/WindowManagerService.java
+@@ -5528,6 +5528,9 @@ public class WindowManagerService extends IWindowManager.Stub
+ 
+             // The screenshot API does not apply the current screen rotation.
+             rot = mDisplay.getRotation();
++            // Allow for abnormal hardware orientation
++            rot = (rot + (android.os.SystemProperties.getInt("ro.sf.hwrotation",0) / 90 )) % 4;
++
+             int fw = frame.width();
+             int fh = frame.height();
+ 
 -- 
-1.7.10
+1.7.9.5
 
 
