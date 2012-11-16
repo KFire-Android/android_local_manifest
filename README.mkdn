@@ -1,4 +1,4 @@
-Local manifest addon for building Omapzoom "jb-release" Jelly Bean for the Kindle Fire
+Local manifest addon for building Omapzoom "jb-mr1-release" Jelly Bean for the Kindle Fire
 
 Getting Started
 ---------------
@@ -13,7 +13,7 @@ Make a build directory:
 
 To initialize your local repository using the AOSP manifest, use commands like these:
 
-    repo init -u git://git.omapzoom.org/platform/omapmanifest.git -b 27.x -m RLS4AJ.2.0_JellyBean.xml
+    repo init -u git://git.omapzoom.org/platform/omapmanifest.git -b jb-mr1-dev
     
     curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-omapzoom/local_manifest.xml
 
@@ -23,14 +23,6 @@ To initialize your local repository using the AOSP manifest, use commands like t
 Then to sync up:
 
     repo sync
-
-Apply the following patches (these are subject to change)
-
-    mkdir patches
-    curl -L -o patches/patch_frameworks-base_fix-rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/5832dee3f6ce085e4fb9ab2ea80591c30312a039/patch_frameworks-base_fix-rotation.patch
-    cd frameworks/base
-    git apply ../../patches/patch_frameworks-base_fix-rotation.patch
-    cd ../..
 
 And finally to build the AOSP ROM:
 
