@@ -1,4 +1,4 @@
-Local manifest addon for building AOSP Jelly Bean (4.1.2_r1) for the Kindle Fire
+Local manifest addon for building OMAPZOOM AOSP Jelly Bean (4.2.1_r1) for the Kindle Fire
 
 Getting Started
 ---------------
@@ -13,7 +13,7 @@ Make a build directory:
 
 To initialize your local repository using the AOSP manifest, use commands like these:
 
-	repo init -u https://android.googlesource.com/platform/manifest -b android-4.1.2_r1
+	repo init -u git://git.omapzoom.org/platform/omapmanifest.git -b jb-mr1-release
     
 	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/local_manifest.xml
 
@@ -24,12 +24,30 @@ Then to sync up:
 
 	repo sync
 
-Apply the following patch (these are subject to change)
+Apply the following patches (these are subject to change)
 
-	curl -L -o patch_frameworks-base_fix-rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/patch_frameworks-base_fix-rotation.patch
+	curl -L -o frameworks_base-fix_logspam.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_base-fix_logspam.patch
+	curl -L -o frameworks_base-fix_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_base-fix_rotation.patch
+	curl -L -o frameworks_native-fix_hw_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_native-fix_hw_rotation.patch
+	curl -L -o frameworks_native-fix_odd_hw_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_native-fix_odd_hw_rotation.patch
+	curl -L -o packages_apps_Settings-fix_storage_fc.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/packages_apps_Settings-fix_storage_fc.patch
+
 	cd frameworks/base
-	git apply ../../patch_frameworks-base_fix-rotation.patch
+	git apply ../../frameworks_base-fix_logspam.patch
+	git apply ../../frameworks_base-fix_rotation.patch
 	cd ../..
+
+	cd frameworks/native
+	git apply ../../frameworks_native-fix_hw_rotation.patch
+	git apply ../../frameworks_native-fix_odd_hw_rotation.patch
+	cd ../..
+
+	cd packages/apps/Settings
+	git apply ../../../packages_apps_Settings-fix_storage_fc.patch
+	cd ../../..
+
+	FOR system/etc:
+	rm -rf su
 
 And finally to build the AOSP ROM:
 
@@ -39,4 +57,3 @@ And finally to build the AOSP ROM:
 
 Look for out/target/product/otter/full_otter-JB-{date}.zip
 
-Credits: 0xD34D for original rotation patch, updated later by: River Zhou

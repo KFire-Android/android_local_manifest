@@ -1,0 +1,84 @@
+From 8b2940c92ac593f44337401b4737dd186fe24345 Mon Sep 17 00:00:00 2001
+From: Pawit Pornkitprasan <p.pawit@gmail.com>
+Date: Fri, 23 Nov 2012 16:42:11 +0700
+Subject: [PATCH] Settings: fix storage measurement for device without
+ emulated sdcard
+
+StorageMeasurement: misc files should only be measured for internal
+storage only if it is the emulated storage, otherwise misc count
+for the primary storage will be erroneously duplicated on the
+internal storage count.
+
+StorageVolumePreferenceCategory:
+  - Always create mMountTogglePreference to avoid null pointer
+    exception for code that relies on it existing
+  - Check if the keys exist before calculating totalValues to
+    avoid null pointer exception on storage where media is not
+    calculated
+  - For available/readonly, set title, not summary (summary is
+    supposed to be the amount available)
+
+Change-Id: Ib217f79ee562dffc514696fff038e58ed0dba7d9
+---
+ src/com/android/settings/deviceinfo/StorageMeasurement.java |    2 +-
+ .../deviceinfo/StorageVolumePreferenceCategory.java         |   11 +++++++----
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/src/com/android/settings/deviceinfo/StorageMeasurement.java b/src/com/android/settings/deviceinfo/StorageMeasurement.java
+index 772ac0d..a22ba77 100644
+--- a/src/com/android/settings/deviceinfo/StorageMeasurement.java
++++ b/src/com/android/settings/deviceinfo/StorageMeasurement.java
+@@ -422,7 +422,7 @@ private void measureExactStorage(IMediaContainerService imcs) {
+             }
+ 
+             // Measure misc files not counted under media
+-            if (mIsInternal || mIsPrimary) {
++            if (measureMedia) {
+                 final File path = mIsInternal ? currentEnv.getExternalStorageDirectory()
+                         : mVolume.getPathFile();
+                 details.miscSize = measureMisc(imcs, path);
+diff --git a/src/com/android/settings/deviceinfo/StorageVolumePreferenceCategory.java b/src/com/android/settings/deviceinfo/StorageVolumePreferenceCategory.java
+index 1599ec7..61188ec 100644
+--- a/src/com/android/settings/deviceinfo/StorageVolumePreferenceCategory.java
++++ b/src/com/android/settings/deviceinfo/StorageVolumePreferenceCategory.java
+@@ -194,8 +194,9 @@ public void init() {
+         }
+ 
+         final boolean isRemovable = mVolume != null ? mVolume.isRemovable() : false;
++        // Always create the preference since many code rely on it existing
++        mMountTogglePreference = new Preference(context);
+         if (isRemovable) {
+-            mMountTogglePreference = new Preference(context);
+             mMountTogglePreference.setTitle(R.string.sd_eject);
+             mMountTogglePreference.setSummary(R.string.sd_eject_summary);
+             addPreference(mMountTogglePreference);
+@@ -240,12 +241,12 @@ private void updatePreferencesFromState() {
+         final String state = mStorageManager.getVolumeState(mVolume.getPath());
+ 
+         if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+-            mItemAvailable.setSummary(R.string.memory_available_read_only);
++            mItemAvailable.setTitle(R.string.memory_available_read_only);
+             if (mFormatPreference != null) {
+                 removePreference(mFormatPreference);
+             }
+         } else {
+-            mItemAvailable.setSummary(R.string.memory_available);
++            mItemAvailable.setTitle(R.string.memory_available);
+         }
+ 
+         if (Environment.MEDIA_MOUNTED.equals(state)
+@@ -310,7 +311,9 @@ public void updateApproximate(long totalSize, long availSize) {
+     private static long totalValues(HashMap<String, Long> map, String... keys) {
+         long total = 0;
+         for (String key : keys) {
+-            total += map.get(key);
++            if (map.containsKey(key)) {
++                total += map.get(key);
++            }
+         }
+         return total;
+     }
+-- 
+1.7.10
+
+
