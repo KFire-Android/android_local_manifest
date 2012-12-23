@@ -14,11 +14,11 @@ index 43c2c18..42ebe7d 100644
 +    property_get("ro.sf.hwrotation", value, "0");
 +    int additionalRot = atoi(value) / 90;
 +    if ((type == DisplayDevice::DISPLAY_PRIMARY) && (additionalRot & DisplayState::eOrientationSwapMask)) {
-+    }
 +        info->h = hwc.getWidth(type);
 +        info->w = hwc.getHeight(type);
 +        info->xdpi = ydpi;
 +        info->ydpi = xdpi;
++    }
 +    else {
 +        info->w = hwc.getWidth(type);
 +        info->h = hwc.getHeight(type);
