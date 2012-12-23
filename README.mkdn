@@ -46,8 +46,8 @@ Apply the following patches (these are subject to change)
 	git apply ../../../packages_apps_Settings-fix_storage_fc.patch
 	cd ../../..
 
-	FOR system/etc:
-	rm -rf su
+	cd system/etc:
+	rm -r su
 
 And finally to build the AOSP ROM:
 
