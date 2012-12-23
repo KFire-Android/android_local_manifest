@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-  <remote  name="gh" fetch="git://github.com/" />
+  <remote  name="omapzoom" fetch="git://git.omapzoom.org/" />
 
-  <remove-project name="platform/build" />
-  <remove-project name="platform/hardware/ti/domx" />
-  <remove-project name="platform/system/vold" />
+  <remove-project name="CyanogenMod/android_frameworks_av" />
+  <remove-project name="CyanogenMod/android_frameworks_base" />
+  <remove-project name="CyanogenMod/android_hardware_ti_omap4xxx" />
 
-  <!-- replacement -->
-  <project path="build" name="KFire-Android/android_build" remote="gh" revision="jb-aosp-4.2_r1" />
-  <project path="system/vold" name="CyanogenMod/android_system_vold" remote="gh" revision="mr1-staging" />
-  <project path="system/su" name="CyanogenMod/android_system_su" remote="gh" revision="mr1-staging" />
-  <project path="packages/apps/Superuser" name="CyanogenMod/android_packages_apps_Superuser" remote="gh" revision="mr1-staging" />
+  <!-- CM replacements -->
+  <project path="frameworks/av" name="STS-Dev-Team/android_frameworks_av" />
+  <project path="frameworks/base" name="STS-Dev-Team/android_frameworks_base" />
+  <project path="hardware/ti/omap4xxx" name="STS-Dev-Team/android_hardware_ti_omap4xxx" />
+
+  <!-- omapzoom projects -->
+  <project path="external/wpa_supplicant_8_ti" name="platform/external/wpa_supplicant_8_ti" remote="omapzoom" revision="p-jb-mr1-release" />
 
   <!-- local projects -->
-  <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="gh" revision="jb-mr1" />
-  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="gh" revision="p-android-omap-3.0" />
+  <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" revision="jb-mr1-dev" />
+  <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" revision="p-android-omap-3.0" />
+  <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" revision="jb-mr1" />
+  <project path="kernel/amazon/jem" name="KFire-Android/kernel_omap_bowser" revision="p-android-3.0" />
 
   </manifest>
 

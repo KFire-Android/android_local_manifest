@@ -1,4 +1,4 @@
-Local manifest addon for building OMAPZOOM AOSP Jelly Bean (4.2.1_r1) for the Kindle Fire
+Local manifest addon for building CM-10.1 (4.2.1_r1) for Kindle Fires
 
 Getting Started
 ---------------
@@ -13,47 +13,22 @@ Make a build directory:
 
 To initialize your local repository using the AOSP manifest, use commands like these:
 
-	repo init -u git://git.omapzoom.org/platform/omapmanifest.git -b jb-mr1-release
+	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
     
-	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/local_manifest.xml
+	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/cm-10.1/local_manifest.xml
 
-	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-aosp/local_manifest.xml
+	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/cm-10.1/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
 
 	repo sync
 
-Apply the following patches (these are subject to change)
-
-	curl -L -o frameworks_base-fix_logspam.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_base-fix_logspam.patch
-	curl -L -o frameworks_base-fix_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_base-fix_rotation.patch
-	curl -L -o frameworks_native-fix_hw_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_native-fix_hw_rotation.patch
-	curl -L -o frameworks_native-fix_odd_hw_rotation.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/frameworks_native-fix_odd_hw_rotation.patch
-	curl -L -o packages_apps_Settings-fix_storage_fc.patch https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp/packages_apps_Settings-fix_storage_fc.patch
-
-	cd frameworks/base
-	git apply ../../frameworks_base-fix_logspam.patch
-	git apply ../../frameworks_base-fix_rotation.patch
-	cd ../..
-
-	cd frameworks/native
-	git apply ../../frameworks_native-fix_hw_rotation.patch
-	git apply ../../frameworks_native-fix_odd_hw_rotation.patch
-	cd ../..
-
-	cd packages/apps/Settings
-	git apply ../../../packages_apps_Settings-fix_storage_fc.patch
-	cd ../../..
-
-	cd system/etc:
-	rm -r su
-
 And finally to build the AOSP ROM:
 
 	. build/envsetup.sh
-	lunch full_otter-userdebug
-	make bacon (can add -j# for cores to use: make -j32 bacon)
+	(for 1st gen Kindle Fire:) brunch otter
+	(for Kindle Fire HD 8.9:) brunch jum
 
-Look for out/target/product/otter/full_otter-JB-{date}.zip
+Look for out/target/product/<devicename>/cm-10.1-<date:YYYYMMDD>-UNOFFICIAL-<devicename>.zip
 
