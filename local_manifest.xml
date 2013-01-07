@@ -8,9 +8,9 @@
   <remove-project name="CyanogenMod/android_hardware_ti_omap4xxx" />
 
   <!-- CM replacements -->
-  <project path="frameworks/av" name="STS-Dev-Team/android_frameworks_av" />
-  <project path="frameworks/base" name="STS-Dev-Team/android_frameworks_base" />
-  <project path="hardware/ti/omap4xxx" name="STS-Dev-Team/android_hardware_ti_omap4xxx" />
+  <project path="frameworks/av" name="KFire-Android/android_frameworks_av" />
+  <project path="frameworks/base" name="KFire-Android/android_frameworks_base" />
+  <project path="hardware/ti/omap4xxx" name="KFire-Android/android_hardware_ti_omap4xxx" />
 
   <!-- omapzoom projects -->
   <project path="external/wpa_supplicant_8_ti" name="platform/external/wpa_supplicant_8_ti" remote="omapzoom" revision="p-jb-mr1-release" />
