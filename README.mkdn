@@ -11,7 +11,7 @@ Make a build directory:
 	cd Android (or the name you chose)
 	
 
-To initialize your local repository using the AOSP manifest, use commands like these:
+To initialize your local repository using the CM manifest, use commands like these:
 
 	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
     
@@ -24,11 +24,12 @@ Then to sync up:
 
 	repo sync
 
-And finally to build the AOSP ROM:
+And finally to build the CM ROM:
 
 	. build/envsetup.sh
 	(for 1st gen Kindle Fire:) brunch otter
-	(for Kindle Fire HD 8.9:) brunch jum
+	(for 2nd gen Kindle Fire:) brunch otter2
+	(for Kindle Fire HD 8.9:) brunch jem
 
 Look for out/target/product/<devicename>/cm-10.1-<date:YYYYMMDD>-UNOFFICIAL-<devicename>.zip
 
