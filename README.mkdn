@@ -5,16 +5,18 @@ Getting Started
 
 To get started with please see our [wiki](https://github.com/KFire-Android/android_local_manifest/wiki).
 
+Also get and be familiar with [Git and Repo](http://source.android.com/download/using-repo).
+
 Make a build directory:
 
 	mkdir Andoid (or whatever name you choose)
 	cd Android (or the name you chose)
 	
 
-To initialize your local repository using the CM manifest, use commands like these:
+To initialize your local repository using the CyanogenMod manifest, use commands like these:
 
 	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
-    
+
 	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/cm-10.1/local_manifest.xml
 
 	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/cm-10.1/local_manifest.xml
@@ -23,6 +25,12 @@ To initialize your local repository using the CM manifest, use commands like the
 Then to sync up:
 
 	repo sync
+
+The following cherry-picks are needed from CM review until they are merged:
+
+frameworks/av:
+
+http://review.cyanogenmod.org/#/c/31052/ Video Encoder: Enable Ducati h264 encoder profile change
 
 And finally to build the CM ROM:
 
