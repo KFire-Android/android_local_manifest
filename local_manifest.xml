@@ -3,27 +3,17 @@
 
   <remote  name="omapzoom" fetch="git://git.omapzoom.org/" />
 
-  <remove-project name="CyanogenMod/android_frameworks_av" />
-  <remove-project name="CyanogenMod/android_frameworks_base" />
-  <remove-project name="CyanogenMod/android_hardware_ti_omap4xxx" />
-
-  <!-- CM replacements -->
-  <project path="frameworks/av" name="KFire-Android/android_frameworks_av" />
-  <project path="frameworks/base" name="KFire-Android/android_frameworks_base" />
-  <project path="hardware/ti/omap4xxx" name="KFire-Android/android_hardware_ti_omap4xxx" />
-
   <!-- omapzoom projects -->
   <project path="external/wpa_supplicant_8_ti" name="platform/external/wpa_supplicant_8_ti" remote="omapzoom" revision="p-jb-mr1-release" />
 
   <!-- local projects -->
-  <project path="kernel/amazon/otter-common" name="KFire-Android/kernel_omap_otter-common" revision="p-android-omap-3.0" />
+  <project path="kernel/amazon/otter-common" name="KFire-Android/kernel_omap_otter-common" />
   <project path="kernel/amazon/bowser-common" name="KFire-Android/kernel_omap_bowser-common" revision="p-android-3.0" />
-
-  <project path="device/amazon/omap4-common" name="KFire-Android/android_device_amazon_omap4-common" revision="jb-mr1" />
-  <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" revision="jb-mr1-dev" />
-  <project path="device/amazon/otter2" name="KFire-Android/android_device_amazon_otter2" revision="jb-mr1" />
-  <project path="device/amazon/tate" name="KFire-Android/android_device_amazon_tate" revision="jb-mr1" />
-  <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" revision="jb-mr1" />
+  <project path="device/amazon/omap4-common" name="KFire-Android/android_device_amazon_omap4-common" />
+  <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" />
+  <project path="device/amazon/otter2" name="KFire-Android/android_device_amazon_otter2" />
+  <project path="device/amazon/tate" name="KFire-Android/android_device_amazon_tate" />
+  <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" />
 
   </manifest>
 
