@@ -18,8 +18,8 @@
     <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="ics" />
 
     <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/device-amazon-otter" remote="github" revision="ics-aosp" />
-    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap" remote="github" revision="4AI.5" />
+    <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" remote="github" revision="ics-aosp" />
+    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap_otter-common" remote="github" revision="4AI.5" />
     <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="ics" />
 
   </manifest>
