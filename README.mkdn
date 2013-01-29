@@ -26,12 +26,6 @@ Then to sync up:
 
 	repo sync
 
-The following cherry-picks are needed from CM review until they are merged:
-
-frameworks/av:
-
-http://review.cyanogenmod.org/#/c/31052/ Video Encoder: Enable Ducati h264 encoder profile change
-
 And finally to build the CM ROM:
 
 	. build/envsetup.sh
