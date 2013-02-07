@@ -19,5 +19,9 @@
   <project path="device/amazon/tate" name="KFire-Android/android_device_amazon_tate" revision="jb-mr1" />
   <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" revision="jb-mr1" />
 
+  <project path="vendor/amazon" name="KFire-Android/proprietary_vendor_amazon" revision="cm-10.1" />
+  <project path="vendor/imgtec" name="KFire-Android/proprietary_vendor_imgtec" revision="cm-10.1" />
+  <project path="vendor/invensense" name="KFire-Android/proprietary_vendor_invensense" revision="cm-10.1" />
+
   </manifest>
 
