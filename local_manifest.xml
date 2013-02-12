@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-  <remote  name="omapzoom" fetch="git://git.omapzoom.org/" />
-
-  <!-- omapzoom projects -->
-  <project path="external/wpa_supplicant_8_ti" name="platform/external/wpa_supplicant_8_ti" remote="omapzoom" revision="p-jb-mr1-release" />
+  <project path="external/wpa_supplicant_8_ti" name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
 
   <!-- local projects -->
   <project path="kernel/amazon/otter-common" name="KFire-Android/kernel_omap_otter-common" />
   <project path="kernel/amazon/bowser-common" name="KFire-Android/kernel_omap_bowser-common" />
   
-  <project path="device/amazon/omap4-common" name="KFire-Android/android_device_amazon_omap4-common" revision="jb-mr1" />
-  <project path="device/amazon/otter-common" name="KFire-Android/android_device_amazon_otter-common" revision="jb-mr1" />
-  <project path="device/amazon/bowser-common" name="KFire-Android/android_device_amazon_bowser-common" revision="jb-mr1" />
+  <project path="device/amazon/omap4-common" name="KFire-Android/android_device_amazon_omap4-common" />
+  <project path="device/amazon/otter-common" name="KFire-Android/android_device_amazon_otter-common" />
+  <project path="device/amazon/bowser-common" name="KFire-Android/android_device_amazon_bowser-common" />
   
-  <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" revision="jb-mr1" />
-  <project path="device/amazon/otter2" name="KFire-Android/android_device_amazon_otter2" revision="jb-mr1" />
-  <project path="device/amazon/tate" name="KFire-Android/android_device_amazon_tate" revision="jb-mr1" />
-  <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" revision="jb-mr1" />
+  <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" />
+  <project path="device/amazon/otter2" name="KFire-Android/android_device_amazon_otter2" />
+  <project path="device/amazon/tate" name="KFire-Android/android_device_amazon_tate" />
+  <project path="device/amazon/jem" name="KFire-Android/android_device_amazon_jem" />
 
-  <project path="vendor/amazon" name="KFire-Android/proprietary_vendor_amazon" revision="cm-10.1" />
+  <project path="vendor/amazon" name="KFire-Android/proprietary_vendor_amazon" />
 
   </manifest>
 
