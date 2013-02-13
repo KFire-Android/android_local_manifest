@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-  <project path="external/wpa_supplicant_8_ti" name="CyanogenMod/android_external_wpa_supplicant_8_ti" />
-
   <!-- local projects -->
   <project path="kernel/amazon/otter-common" name="KFire-Android/kernel_omap_otter-common" />
   <project path="kernel/amazon/bowser-common" name="KFire-Android/kernel_omap_bowser-common" />
