@@ -26,6 +26,10 @@ Then to sync up:
 
 	repo sync
 
+Need to pull down the prebuilt add-ons for CM:
+
+	vendor/cm/get-prebuilts
+
 And finally to build the CM ROM:
 
 	. build/envsetup.sh
