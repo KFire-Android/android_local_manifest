@@ -15,7 +15,7 @@ Make a build directory:
 
 To initialize your local repository using the CyanogenMod manifest, use commands like these:
 
-	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1-k34
+	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
 
 	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/cm-10.1-k34/local_manifest.xml
 
