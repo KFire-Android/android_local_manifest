@@ -1,4 +1,4 @@
-Local manifest addon for building CM-10.1 (4.2.1_r1) for Kindle Fires
+Local manifest addon for building CM-10.1 (4.2.2_r1) on TI Kernel 3.4.x for Kindle Fires
 
 Getting Started
 ---------------
@@ -15,11 +15,11 @@ Make a build directory:
 
 To initialize your local repository using the CyanogenMod manifest, use commands like these:
 
-	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
+	repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1-k34
 
-	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/cm-10.1/local_manifest.xml
+	curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/cm-10.1-k34/local_manifest.xml
 
-	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/cm-10.1/local_manifest.xml
+	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/cm-10.1-k34/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
@@ -34,8 +34,6 @@ And finally to build the CM ROM:
 
 	. build/envsetup.sh
 	(for 1st gen Kindle Fire:) brunch otter
-	(for 2nd gen Kindle Fire:) brunch otter2
-	(for Kindle Fire HD 8.9:) brunch jem
 
 Look for out/target/product/<devicename>/cm-10.1-<date:YYYYMMDD>-UNOFFICIAL-<devicename>.zip
 
