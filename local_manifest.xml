@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <manifest>
+<manifest>
+  <remote fetch="git://github.com/" name="gh" />
 
-    <remote  name="omapzoom"
-           fetch="git://git.omapzoom.org/" />
+  <remove-project name="platform/build" />
+  <remove-project name="platform/frameworks/av" />
+  <remove-project name="platform/frameworks/base" />
+  <remove-project name="platform/frameworks/native" />
+  <remove-project name="platform/hardware/libhardware_legacy" />
+  <remove-project name="platform/hardware/ti/omap4xxx" />
+  <remove-project name="platform/hardware/ti/wlan" />
+  <remove-project name="platform/hardware/ti/wpan" />
 
-    <remote name="github"
-           fetch="git://github.com/" />
+  <project name="CyanogenMod/android_external_wpa_supplicant_8_ti" path="external/wpa_supplicant_8_ti" remote="gh" revision="cm-10.2" />
 
-    <!-- removals -->
-    <remove-project name="platform/external/wpa_supplicant_8" />
+  <project name="KFire-Android/android_build" path="build" groups="pdk" remote="gh" revision="jb-aosp-4.3_r2.1" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
 
-    <!-- omapzoom projects -->
-    <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" remote="omapzoom" revision="d933a3abe927e2285cad8c00e3d6adfbb1998f8f" />
-    <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" remote="omapzoom" revision="p-ics-mr1-release" />
+  <project name="KFire-Android/android_frameworks_av" path="frameworks/av" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_frameworks_base" path="frameworks/base" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_frameworks_native" path="frameworks/native" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_hardware_ti_omap4xxx" path="hardware/ti/omap4xxx" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_hardware_ti_wlan" path="hardware/ti/wlan" remote="gh" revision="jb-aosp-4.3_r2.1" />
+  <project name="KFire-Android/android_hardware_ti_wpan" path="hardware/ti/wpan" remote="gh" revision="jb-aosp-4.3_r2.1" />
 
-    <!-- cyanogenmod projects -->
-    <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="ics" />
+  <project name="KFire-Android/kernel_omap_otter-common" path="kernel/amazon/otter-common" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/kernel_omap_bowser-common" path="kernel/amazon/bowser-common" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_omap4-common" path="device/amazon/omap4-common" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_otter-common" path="device/amazon/otter-common" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_otter" path="device/amazon/otter" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_otter2" path="device/amazon/otter2" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_bowser-common" path="device/amazon/bowser-common" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_tate" path="device/amazon/tate" remote="gh" revision="cm-10.2" />
+  <project name="KFire-Android/android_device_amazon_jem" path="device/amazon/jem" remote="gh" revision="cm-10.2" />
 
-    <!-- local projects -->
-    <project path="device/amazon/otter" name="KFire-Android/android_device_amazon_otter" remote="github" revision="ics-aosp" />
-    <project path="kernel/amazon/otter" name="KFire-Android/kernel_omap_otter-common" remote="github" revision="4AI.5" />
-    <project path="vendor/amazon/otter" name="KFire-Android/android_vendor_amazon_otter" remote="github" revision="ics" />
+  <project name="KFire-Android/proprietary_vendor_amazon" path="vendor/amazon"  remote="gh" revision="cm-10.2" />
 
-  </manifest>
+</manifest>
+

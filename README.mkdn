@@ -1,4 +1,4 @@
-Local manifest addon for ICS to build for the Kindle Fire
+Local manifest addon for building AOSP Jellybean 4.3_r2.1 for the Kindle Fires
 
 Getting Started
 ---------------
@@ -11,150 +11,29 @@ Make a build directory:
 	cd Android (or the name  you chose)
 	
 
-To initialize your local repository using the CM9 manifest, use commands like these:
+To initialize your local repository using the AOSP manifest, use commands like these:
 
-    repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.4_r2.1
+    repo init -u https://android.googlesource.com/platform/manifest -b android-4.3_r2.1
     
-    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/ics-aosp/local_manifest.xml
+    curl -L -o .repo/local_manifest.xml -O -L https://raw.github.com/KFire-Android/android_local_manifest/jb-aosp-4.3_r2.1/local_manifest.xml
 
-    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/ics/local_manifest.xml
+    	( or Download: https://github.com/KFire-Android/android_local_manifest/blob/jb-aosp-4.3_r2.1/local_manifest.xml
 		and place it in ~/Android/.repo/local_manifest.xml (or ~/'name you chose'/.repo)
 
 Then to sync up:
 
     repo sync
 
-To fix compile/build errors do the following:
+Setup the build environment:
 
-project build/
-diff --git a/core/combo/HOST_linux-x86.mk b/core/combo/HOST_linux-x86.mk
-index 5ae4972..7df2893 100644
---- a/core/combo/HOST_linux-x86.mk
-+++ b/core/combo/HOST_linux-x86.mk
-@@ -53,6 +53,6 @@ HOST_GLOBAL_CFLAGS += \
- 	-include $(call select-android-config-h,linux-x86)
- 
- # Disable new longjmp in glibc 2.11 and later. See bug 2967937.
--HOST_GLOBAL_CFLAGS += -D_FORTIFY_SOURCE=0
-+HOST_GLOBAL_CFLAGS += -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
- 
- HOST_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
-diff --git a/core/main.mk b/core/main.mk
-index 569d4dc..291e02b 100644
---- a/core/main.mk
-+++ b/core/main.mk
-@@ -128,7 +128,7 @@ $(info $(space))
- $(info Please follow the machine setup instructions at)
- $(info $(space)$(space)$(space)$(space)http://source.android.com/source/download.html)
- $(info ************************************************************)
--$(error stop)
-+#$(error stop)
- endif
- 
- # Check for the correct version of javac
+    . build/envsetup.sh
 
-project cts/
-diff --git a/Android.mk b/Android.mk
-index 159bda0..ad5b7b9 100644
---- a/Android.mk
-+++ b/Android.mk
-@@ -15,5 +15,5 @@
- #
- 
- include cts/CtsNativeTestCase.mk
--include cts/CtsTestCoverage.mk
--include $(call all-subdir-makefiles)
-+#include cts/CtsTestCoverage.mk
-+#include $(call all-subdir-makefiles)
+Select a device to build using "lunch" like this (choices for device are: otter, otter2, tate, jem, jemlte): lunch full_<device>-userdebug
 
-project development/
-diff --git a/tools/emulator/opengl/host/renderer/Android.mk b/tools/emulator/opengl/host/renderer/Android.mk
-index 55fcb80..613179c 100644
---- a/tools/emulator/opengl/host/renderer/Android.mk
-+++ b/tools/emulator/opengl/host/renderer/Android.mk
-@@ -6,6 +6,8 @@ $(call emugl-import,libOpenglRender)
- LOCAL_SRC_FILES := main.cpp
- LOCAL_CFLAGS    += -O0 -g
- 
-+LOCAL_LDLIBS += -lX11
-+
- #ifeq ($(HOST_OS),windows)
- #LOCAL_LDLIBS += -lws2_32
- #endif
+    lunch full_otter-userdebug
 
-project external/gtest/
-diff --git a/include/gtest/internal/gtest-param-util.h b/include/gtest/internal/gtest-param-util.h
-index 5559ab4..9b00217 100644
---- a/include/gtest/internal/gtest-param-util.h
-+++ b/include/gtest/internal/gtest-param-util.h
-@@ -30,6 +30,7 @@
- // Author: vladl@google.com (Vlad Losev)
- 
- // Type and function utilities for implementing parameterized tests.
-+#include <cstddef>
- 
- #ifndef GTEST_INCLUDE_GTEST_INTERNAL_GTEST_PARAM_UTIL_H_
- #define GTEST_INCLUDE_GTEST_INTERNAL_GTEST_PARAM_UTIL_H_
+And start the build (-j# is set the # of virtual cores you have in your build box.  examples: -j8, -j32, etc):
 
-project external/llvm/
-diff --git a/llvm-host-build.mk b/llvm-host-build.mk
-index 5219efd..bebf135 100644
---- a/llvm-host-build.mk
-+++ b/llvm-host-build.mk
-@@ -1,3 +1,5 @@
-+LOCAL_LDLIBS := -lpthread -ldl
-+
- LOCAL_CFLAGS :=	\
- 	-D_GNU_SOURCE	\
- 	-D__STDC_LIMIT_MACROS	\
+    make -j8 otapackage
 
-project external/mesa3d/
-diff --git a/src/glsl/linker.cpp b/src/glsl/linker.cpp
-index f8b6962..f31e5b5 100644
---- a/src/glsl/linker.cpp
-+++ b/src/glsl/linker.cpp
-@@ -67,6 +67,7 @@
- #include <cstdio>
- #include <cstdarg>
- #include <climits>
-+#include <stddef.h>
- 
- #include <pixelflinger2/pixelflinger2_interface.h>
- 
-@@ -1762,4 +1763,4 @@ done:
-    }
- 
-    //hieralloc_free(mem_ctx);
--}
-\ No newline at end of file
-+}
-
-project external/oprofile/
-diff --git a/libpp/format_output.h b/libpp/format_output.h
-index b6c4592..8e527d5 100644
---- a/libpp/format_output.h
-+++ b/libpp/format_output.h
-@@ -91,7 +91,7 @@ protected:
- 		symbol_entry const & symbol;
- 		sample_entry const & sample;
- 		size_t pclass;
--		mutable counts_t & counts;
-+		counts_t & counts;
- 		extra_images const & extra;
- 		double diff;
- 	};
-
-project frameworks/compile/slang/
-diff --git a/Android.mk b/Android.mk
-index a783ba9..8863240 100644
---- a/Android.mk
-+++ b/Android.mk
-@@ -19,7 +19,7 @@ ifeq ($(TARGET_BUILD_APPS),)
- 
- LOCAL_PATH := $(call my-dir)
- 
--local_cflags_for_slang := -Wno-sign-promo -Wall -Wno-unused-parameter -Werror
-+local_cflags_for_slang := -Wno-sign-promo -Wall -Wno-unused-parameter
- ifneq ($(TARGET_BUILD_VARIANT),eng)
- local_cflags_for_slang += -D__DISABLE_ASSERTS
- endif
+Look for the flash .zip in: out/target/product/<device>
