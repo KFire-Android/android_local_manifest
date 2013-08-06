@@ -7,7 +7,7 @@ To get started with please see our [wiki](https://github.com/KFire-Android/andro
 
 Make a build directory:
 
-	mkdir Andoid (or whatever name you choose)
+	mkdir Android (or whatever name you choose)
 	cd Android (or the name  you chose)
 	
 
